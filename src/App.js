@@ -4,6 +4,7 @@ import Topbar from "components/topbar/Topbar";
 import Home from "pages/home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserList from "pages/userList/UserList";
+import User from "pages/user/User";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="users" element={<UserList />} />
+          <Route path="users/:usersId" element={<User />} />
         </Routes>
       </div>
     </Router>
