@@ -13,12 +13,15 @@ import {
   Timeline,
   TrendingUp,
 } from "@mui/icons-material";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 export default function Sidebar() {
+  const [isDark, setIsDark] = useState(false);
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isDark ? "" : "night"}`}>
       <div className="sidebarWrapper">
         {/* Dashboard */}
         <div className="sidebarMenu">
@@ -27,16 +30,16 @@ export default function Sidebar() {
             <Link to={"/"} className="link">
               <li className="sidebarListItem">
                 <LineStyle className="sidebarIcon" />
-                Home
+                <span className="listItemText">Home</span>
               </li>
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              <span className="listItemText">Analytics</span>
             </li>
             <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
-              Sales
+              <span className="listItemText">Sales</span>
             </li>
           </ul>
         </div>
@@ -47,22 +50,22 @@ export default function Sidebar() {
             <Link to={"/users"} className="link">
               <li className="sidebarListItem">
                 <PersonOutline className="sidebarIcon" />
-                Users
+                <span className="listItemText">Users</span>
               </li>
             </Link>
             <Link to={"/products"} className="link">
               <li className="sidebarListItem">
                 <Inventory2Outlined className="sidebarIcon" />
-                Products
+                <span className="listItemText">Products</span>
               </li>
             </Link>
             <li className="sidebarListItem">
               <PaidOutlined className="sidebarIcon" />
-              Transactions
+              <span className="listItemText">Transactions</span>
             </li>
             <li className="sidebarListItem">
               <LeaderboardOutlined className="sidebarIcon" />
-              Reports
+              <span className="listItemText">Reports</span>
             </li>
           </ul>
         </div>
@@ -72,15 +75,15 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" />
-              Mail
+              <span className="listItemText">Mail</span>
             </li>
             <li className="sidebarListItem">
               <FeedbackOutlined className="sidebarIcon" />
-              Feeback
+              <span className="listItemText">Feeback</span>
             </li>
             <li className="sidebarListItem">
               <MessageOutlined className="sidebarIcon" />
-              Messages
+              <span className="listItemText">Messages</span>
             </li>
           </ul>
         </div>
@@ -90,18 +93,22 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <ManageAccountsOutlined className="sidebarIcon" />
-              Manage
+              <span className="listItemText">Manage</span>
             </li>
             <li className="sidebarListItem">
               <InsightsOutlined className="sidebarIcon" />
-              Analytics
+              <span className="listItemText">Analytics</span>
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-              Reports
+              <span className="listItemText">Reports</span>
             </li>
           </ul>
         </div>
+      </div>
+      <div className="sidebarBottom">
+        <div className="colorBox dark" onClick={() => setIsDark(true)}></div>
+        <div className="colorBox night" onClick={() => setIsDark(false)}></div>
       </div>
     </div>
   );

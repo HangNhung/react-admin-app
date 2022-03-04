@@ -1,14 +1,27 @@
 .sidebar {
+  max-width: 200px;
   flex: 1;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
   position: sticky;
-  background-color: rgb(243, 253, 244);
+  background-color: #111827;
   top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebarBottom {
+  width: 80%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebarWrapper {
   padding: 20px;
   color: #555;
+  border-bottom: 1px solid #bff3b8;
 }
 
 .sidebarMenu {
@@ -41,4 +54,50 @@
 .sidebarIcon {
   margin-right: 5px;
   font-size: 20px !important;
+}
+
+.colorBox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.dark {
+  background-color: #111827;
+}
+
+.night {
+  background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 50px;
+  }
+
+  .sidebarTitle,
+  .listItemText {
+    display: none;
+  }
+
+  .sidebarBottom {
+    flex-direction: column;
+  }
+
+  .colorBox {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+.sidebar.night {
+  background-color: rgb(243, 253, 244);
+  color: #b4bbc7;
+}
+
+.sidebarListItem.active.night {
+  background-color: rgb(243, 253, 244);
 }
